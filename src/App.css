@@ -1,38 +1,104 @@
-.App {
-  text-align: center;
-}
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+  background-image: url(./Components/weather.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: 'Lato', sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.containerBody{
+  height: 92.3vh;
+  margin-top: 36px;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.containerInput input{
+  text-decoration: none;
+  color: #86bbb3;
+  background-color: white;
+  font-size:30px;
+  border: 0px solid white;
+  border-radius: 55px;
+  padding: 4px 25px;
+  margin-left: 145px;
+  opacity: .9;
+}
+.containerInput{
+  width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
+}
+.containerInput p{
+  margin-right: 100px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
+  font-weight:lighter;
+}
+.fa-solid{
+  position: relative;
+  top: 14px;
+  right: 437px;
+  font-size: 23px;
+  opacity: .5;
 }
 
-.App-link {
-  color: #61dafb;
+.container1{
+  border: 2px solid #dff5f8;
+  border-radius: 15px;
+  width: 830px;
+  padding: 31px;
+  margin: 30px 147px;
+  color: #3e3e3e;
+  opacity: .8;
 }
+.container1 h2{
+  font-weight: bolder;
+  font-size: 50px;
+  text-shadow: 2px 2px 5px #ffffff;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.container1 h1{
+  margin: 40px 0px;
+  font-size: 70px;
+}
+.container1 h6{
+  opacity:0.5;
+  color: black;
+  font-weight: lighter;
+  font-size: 40px;
+}
+.feelsLike{
+  color: #373737;
+  margin: 37px 0px;
+  display: flex;
+  flex-direction: row;
+  opacity: .9;
+}
+.feelsLike p{
+  font-size: 19px;
+  font-weight: 600;
+  margin-top: 87px;
+  margin-left: 41px;
+}
+.feelsLike i{   
+  margin: 49px 23px 0px 0px;
+}
+#data{
+  margin: 20px 0px 0px 270px;
+  font-size: 20px;
+}
+.bottomData{
+  text-align: center;
+  display: flex;
+  justify-content: space-evenly;
+  color: #1b1b1b;
+  background-color: #e3e3e3;
+  border-radius: 14px;
+  padding: 17px 0px 8px 0px;
+  font-size: 21px;
+  opacity: .7;
+  line-height: 11px;
+}
+.bold{
+  font-weight: 600;
+}
+.accordion{
+  border: 3px solid #5c7672;
 }
