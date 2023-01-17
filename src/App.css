@@ -1,25 +1,38 @@
-
 body{
-  background-image: url(./Components/weather.jpg);
+  background-image: url(./Components/newimage.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+  background-position: center;
   font-family: 'Lato', sans-serif;
+  
+}
+link{
+  color: #dff5f8 !important;
+}
+.navbar{
+  background-color: #ffffff4a;
 }
 .containerBody{
-  height: 92.3vh;
+  height: 88vh;
   margin-top: 36px;
 }
+.navbar-brand{
+    font-weight: bold;
+    margin-left: 136px;
+}
+
 .containerInput input{
   text-decoration: none;
-  color: #86bbb3;
+  color:  #3e3e3e;
   background-color: white;
-  font-size:30px;
+  font-size:25px;
   border: 0px solid white;
-  border-radius: 55px;
+  border-radius: 55px 0px 0px 55px;
   padding: 4px 25px;
   margin-left: 145px;
   opacity: .9;
 }
+
 .containerInput{
   width: 100%;
   display: flex;
@@ -31,11 +44,19 @@ body{
   font-size: 20px;
   font-weight:lighter;
 }
+.containerInput button{
+  border: 1px solid white;
+  border-radius: 0px 55px 55px  0px ;
+  text-decoration: none;
+  color: #86bbb3;
+  background-color: white;
+  font-size:21px;
+  padding: 7px 10px 5px 9px;
+  opacity: .9;
+  margin-left: 1px;
+  
+}
 .fa-solid{
-  position: relative;
-  top: 14px;
-  right: 437px;
-  font-size: 23px;
   opacity: .5;
 }
 
@@ -66,7 +87,7 @@ body{
 }
 .feelsLike{
   color: #373737;
-  margin: 37px 0px;
+  margin: 28px 0px;
   display: flex;
   flex-direction: row;
   opacity: .9;
@@ -94,11 +115,135 @@ body{
   padding: 17px 0px 8px 0px;
   font-size: 21px;
   opacity: .7;
-  line-height: 11px;
+  line-height: 0;
 }
 .bold{
   font-weight: 600;
 }
 .accordion{
-  border: 3px solid #5c7672;
+  /* border: 3px solid #5c7672; */
+  height: 400px;
+}
+.locationIcon{
+  display: flex;
+}
+.locationIcon i{
+  margin: 15px 10px 0px 0px;
+  font-size: 35px;
+}
+
+@media screen and (max-width: 1000px) {
+  .containerInput input{
+    font-size: 17px;
+    padding: 4px 16px;
+    margin-left: 104px;
+  }
+  .containerInput button{
+    font-size: 16px;
+    padding: 4px 8px 4px 5px;
+    margin-left: 1px;
+  }
+  .container1{
+    width: 643px;
+    height: 355px;
+    padding: 31px;
+    margin: 34px 104px;
+  }
+  .container1 h2{
+    font-size: 38px;
+  
+  }
+  .container1 h1{
+    margin: 20px 0px;
+    font-size: 44px;
+  }
+  .bottomData{
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0px 12px 0px;
+    font-size: 18px;
+  }
+  .feelsLike p{
+    font-size: 14px;
+    margin-top: 45px;
+    margin-left: 20px;
+  }
+  .feelsLike i{   
+    font-size: 40px;
+    margin: 25px 12px 0px 0px;
+  }
+  .locationIcon i{
+    margin: 10px 5px 0px 0px;
+    font-size: 28px;
+  }
+  .containerInput p{
+    margin-right: 122px;
+    font-size: 14px;
+  }
+  .navbar-brand{
+    margin-left: 83px;
+  }
+}
+@media screen and (max-width: 850px) {
+  .containerInput input{
+    font-size: 17px;
+    padding: 4px 16px;
+    margin-left: 90px;
+  }
+  .containerInput p{
+    margin-right: 115px;
+    font-size: 14px;
+  }
+  .container1{
+    width: 643px;
+    height: 355px;
+    padding: 31px;
+    margin: 34px 90px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .container1{
+    width: 560px;
+    height: 355px;
+    padding: 31px;
+    margin: 34px 90px;
+  }
+}
+@media screen and (max-width: 650px) {
+  .container1{
+    width: 466px;
+    height: 350px;
+    padding: 25px;
+    margin: 34px 90px;
+  }
+  .containerInput p{
+    margin-right: 95px;
+    font-size: 12px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .container1{
+    width: 414px;
+    height: 350px;
+    padding: 25px;
+    margin: 34px 65px;
+  }
+  .containerInput p{
+    margin-right: 84px;
+    font-size: 10px;
+  }
+  .containerInput input{
+    font-size: 12px;
+    padding: 4px 16px;
+    margin-left: 64px;
+  }
+  .containerInput button{
+    font-size: 11px;
+    padding: 4px 6px 3px 3px;
+    margin-left: 1px;
+  }
+  .feelsLike p{
+    font-size:7px;
+  }
 }

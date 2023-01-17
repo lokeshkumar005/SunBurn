@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import useFetchApi from "./useFetchApi";
 
-export default function Temperature(props) {
+export default function Temperature() {
   const [currentTimes, setCurrentTimes] = useState("");
+  const [inputText, setInputText] = useState("");
 
   //custom hook
   const { city, search, setSearch } = useFetchApi();
@@ -21,6 +22,13 @@ export default function Temperature(props) {
     "Nov",
     "Dec",
   ];
+
+  const addZero = (i) => {
+    if (i < 10) {
+      i = "0" + i;
+    }
+    return i;
+  };
 
   const updateTime = () => {
     const currentTime = new Date();
@@ -43,13 +51,6 @@ export default function Temperature(props) {
   };
   setInterval(updateTime, 1000);
 
-  const addZero = (i) => {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  };
-
   function timeConverter(UNIX_timestamp) {
     const a = new Date(UNIX_timestamp * 1000);
     const hour = addZero(a.getHours());
@@ -61,6 +62,7 @@ export default function Temperature(props) {
   const capitalizeFirst = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+
   let emoji = null;
   if (typeof city.main != "undefined") {
     if (city.weather[0].main === "Clouds") {
@@ -77,29 +79,51 @@ export default function Temperature(props) {
       emoji = "fa-smog";
     }
   }
+
+  const handleChange = (event) => {
+    const newValue = event.target.value;
+    setInputText(newValue);
+  };
+
+  const handleClick = () => {
+    setSearch(inputText);
+    setInputText("");
+  };
+
   return (
     <>
       <div className="containerBody">
         <div className="containerInput">
-          <input
-            placeholder="Enter location"
-            type="text"
-            value={capitalizeFirst(search)}
-            onChange={(event) => {
-              setSearch(event.target.value);
-            }}
-          />
-          {/* <i class="fa-solid fa-magnifying-glass"></i> */}
-          <p>{currentTimes}</p>
+          <div>
+            <input
+              placeholder="Enter location"
+              type="text"
+              value={capitalizeFirst(inputText)}
+              onChange={handleChange}
+            />
+            <button
+              disabled={inputText.length === 0}
+              type="submit"
+              onClick={handleClick}
+            >
+              <i className="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </div>
+          <div>
+            <p>{currentTimes}</p>
+          </div>
         </div>
         {!city ? (
           <p id="data"></p>
         ) : (
           <div className="container1">
-            <h2>{capitalizeFirst(search)}</h2>
-            {/* <h2>{city.name}</h2> */}
+            <div className="locationIcon">
+              <i className="fa-solid fa-location-dot"></i>
+              <h2>{capitalizeFirst(search)}</h2>
+            </div>
             <div className="feelsLike">
               <i className={`fas ${emoji} fa-4x`}></i>
+              {/* <div>{weatherIcon}</div> */}
               {city.main ? (
                 <h1
                   style={{
@@ -115,52 +139,29 @@ export default function Temperature(props) {
               {city.main ? <p>Feels like ~ {city.main.feels_like}</p> : ""}
             </div>
             <div className="bottomData">
-              <div>
-                {city.main ? (
-                  <p div className="bold">
-                    {city.main.temp_min}°C
-                  </p>
-                ) : (
-                  ""
-                )}
+              <div className="bold">
+                {city.main ? <p>{city.main.temp_min}°C</p> : ""}
+                <hr />
                 <p>Min</p>
               </div>
-              <div>
-                {city.main ? (
-                  <p div className="bold">
-                    {city.main.temp_max}°C
-                  </p>
-                ) : (
-                  ""
-                )}
+              <div className="bold">
+                {city.main ? <p>{city.main.temp_max}°C</p> : ""}
+                <hr />
                 <p>Max</p>
               </div>
-              <div>
-                {city.main ? (
-                  <p div className="bold">
-                    {city.main.humidity}
-                  </p>
-                ) : (
-                  ""
-                )}
+              <div className="bold">
+                {city.main ? <p>{city.main.humidity}</p> : ""}
+                <hr />
                 <p>Humidity</p>
               </div>
-              <div>
-                {city.sys ? (
-                  <p div className="bold">
-                    {timeConverter(city.sys.sunrise)}
-                  </p>
-                ) : (
-                  ""
-                )}
+              <div className="bold">
+                {city.sys ? <p>{timeConverter(city.sys.sunrise)}</p> : ""}
+                <hr />
                 <p>Sunrise</p>
               </div>
-              <div>
-                {city.sys ? (
-                  <p className="bold">{timeConverter(city.sys.sunset)}</p>
-                ) : (
-                  ""
-                )}
+              <div className="bold">
+                {city.sys ? <p>{timeConverter(city.sys.sunset)}</p> : ""}
+                <hr />
                 <p>Sunset</p>
               </div>
             </div>
